@@ -1,22 +1,16 @@
 import PropTypes from 'prop-types';
-import { Label, Input } from 'components/ContactForm/ContactForm.styled';
+import { Input } from 'components/ContactForm/ContactForm.styled';
 
-export function Filter({ onFilter, state }) {
-  return (
-    <Label>
-      <span>Find contacts by name:</span>
-      <Input
-        type="text"
-        name="filter"
-        value={state}
-        onChange={onFilter}
-        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-      />
-    </Label>
-  );
-}
+export const Filter = ({ value, onFilterChange }) => (
+  <Input
+    type="text"
+    value={value}
+    onChange={onFilterChange}
+    placeholder="Search by name"
+  />
+);
 
 Filter.propTypes = {
-  onFilter: PropTypes.func,
-  state: PropTypes.string,
+  value: PropTypes.string.isRequired,
+  onFilterChange: PropTypes.func.isRequired,
 };

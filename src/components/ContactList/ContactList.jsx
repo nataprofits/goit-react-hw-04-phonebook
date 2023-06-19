@@ -1,31 +1,22 @@
-import PropTypes  from "prop-types";
-import { List, Item, Name, Button } from "./ContactList.styled"
+import React from 'react';
+import PropTypes from 'prop-types';
+import { List, Item, Button } from './ContactList.styled';
 
-export function ContactList({ findContacts, onDeleteContact }) {
+export const ContactList = ({ contacts, onRemove }) => {
   return (
     <List>
-      {findContacts
-        .sort((firstContact, secondContact) =>
-          firstContact.name.localeCompare(secondContact.name)
-        )
-        .map(findContact => (
-          <Item key={findContact.id}>
-            <Name>
-              {findContact.name}: {findContact.number}
-            </Name>
-            <Button 
-              onClick={() => onDeleteContact(findContact.id)}
-              type="button"
-            >
-              Delete
-            </Button>
-          </Item>
-        ))}
+      {contacts.map(({ id, name, number }, idx) => (
+        <Item key={id}>
+          <div>{idx + 1}.</div>
+          {name}: {number}
+          <Button onClick={() => onRemove(id)}>Delete</Button>
+        </Item>
+      ))}
     </List>
   );
-}
+};
 
 ContactList.propTypes = {
-  findContacts: PropTypes.arrayOf(PropTypes.object),
-  onDeleteContact: PropTypes.func,
+  contacts: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+  onRemove: PropTypes.func.isRequired,
 };
