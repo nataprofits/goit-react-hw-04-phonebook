@@ -1,8 +1,8 @@
-import styled from "@emotion/styled"
+import styled from '@emotion/styled';
+import { Field, Form } from 'formik';
 
-
-export const Form = styled.form`
-display: flex;
+export const StyledForm = styled(Form)`
+  display: flex;
   flex-direction: column;
   flex-shrink: 0;
   align-items: flex-start;
@@ -16,34 +16,37 @@ display: flex;
   height: fit-content;
   gap: 20px;
 `;
+
 export const Label = styled.label`
-position: relative;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-font-size: 20px;
+  font-size: 20px;
 `;
-export const Input = styled.input`
-padding: 5px 10px;
+
+export const Input = styled(Field)`
+  padding: 5px 10px;
   margin-top: 5px;
   width: 200px;
   cursor: text;
   border: 1px solid rgba(255, 115, 0, 0.8);
   border-radius: 5px;
-font-size: 16px;
+  font-size: 16px;
 `;
-export const ButtonAddDeleteContact = styled.button`
-width: 100%;
-height: 40px;
-color: black;
-background: none;
-border: 2px solid rgba(255, 115, 0, 0.8);
-border-radius: 10px;
-&:hover,
-&:focus {
+
+export const Button = styled.button`
+  width: 100%;
+  height: 40px;
   color: black;
-  font-weight: bold;
-  background: rgba(242, 255, 0, 0.1);
-  border-color: rgba(242, 255, 0, 0.8);
-}
+  background: none;
+  border: 2px solid rgba(255, 115, 0, 0.8);
+  border-radius: 10px;
+  &:hover,
+  &:focus {
+    color: black;
+    font-weight: bold;
+    background: rgba(242, 255, 0, 0.1);
+    border-color: rgba(242, 255, 0, 0.8);
+  }
 `;

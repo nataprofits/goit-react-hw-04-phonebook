@@ -1,5 +1,6 @@
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Input } from 'components/ContactForm/ContactForm.styled';
+import { Input } from './Filter.styled';
 
 export const Filter = ({ value, onFilterChange }) => (
   <Input

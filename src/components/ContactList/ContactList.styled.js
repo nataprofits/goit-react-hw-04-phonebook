@@ -1,10 +1,14 @@
-import styled from "@emotion/styled"
+import styled from '@emotion/styled';
 
 export const List = styled.ul`
-font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 10px;
 `;
- export const Item = styled.li`
- display: flex;
+
+export const ListItem = styled.li`
+  display: flex;
  justify-content: space-between;
  align-items: center;
 
@@ -13,12 +17,9 @@ font-size: 16px;
    border-bottom: 1px dashed rgba(255, 115, 0, 0.8);
    margin-bottom: 5px;
  }
- `;
- export const Name = styled.p`
- width: 130px;
- text-align: start;
- `;
- export const Button = styled.button`
+`;
+
+export const Button = styled.button`
   width: 50px;
   height: 25px;
 

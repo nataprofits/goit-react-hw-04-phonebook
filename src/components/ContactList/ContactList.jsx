@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { List, Item, Button } from './ContactList.styled';
+import { List, ListItem, Button } from './ContactList.styled';
 
 export const ContactList = ({ contacts, onRemove }) => {
   return (
     <List>
       {contacts.map(({ id, name, number }, idx) => (
-        <Item key={id}>
+        <ListItem key={id}>
           <div>{idx + 1}.</div>
           {name}: {number}
           <Button onClick={() => onRemove(id)}>Delete</Button>
-        </Item>
+        </ListItem>
       ))}
     </List>
   );

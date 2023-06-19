@@ -3,7 +3,12 @@ import { nanoid } from 'nanoid';
 import { ContactForm } from '../ContactForm/ContactForm';
 import { ContactList } from '../ContactList/ContactList';
 import { Filter } from '../Filter/Filter';
-import { Title, Container, Div,  } from './App.styled';
+import {
+  Container,
+Title,
+Div,
+NoContacts
+} from './App.styled';
 
 const CONTACTS_LS_KEY = 'contacts';
 const initialContacts = [
@@ -58,16 +63,17 @@ export const App = () => {
 
   return (
     <Container>
-      <Div><Title>Phonebook</Title>
-      <ContactForm onSubmit={handleFormSubmit} /></Div>
+      <Div>
+      <Title>Phonebook</Title>
+      <ContactForm onSubmit={handleFormSubmit} />
+      </Div>
       <Div>
       <Title>Contacts</Title>
-     
       <Filter value={filter} onFilterChange={handleFilterChange} />
       {contacts.length ? (
         <ContactList contacts={visibleContacts} onRemove={removeContact} />
       ) : (
-        <div>No contacts added yet.</div>
+        <NoContacts>No contacts added yet.</NoContacts>
       )}</Div>
     </Container>
   );
